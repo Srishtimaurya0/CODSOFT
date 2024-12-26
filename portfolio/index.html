@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio -Srishti Maurya</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1e1e1e;
+            color: #fff;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+        }
+
+        nav a:hover {
+            background-color: #444;
+            border-radius: 5px;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px 20px;
+        }
+
+        .photo {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .photo img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #ff7f50;
+            object-fit: cover;
+            margin-left: 20px;
+        }
+
+        .intro {
+            flex: 2;
+            padding: 20px;
+        }
+
+        .intro h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .intro p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            background-color: #ff7f50;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .button-container button:hover {
+            background-color: #e76c3c;
+        }
+
+        section {
+            padding: 50px 20px;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        section p, section ul {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .projects ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .projects li {
+            background-color: #333;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 5px;
+            width: 30%;
+            color: #fff;
+        }
+
+        .feedback form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .feedback form input, .feedback form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .feedback form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff7f50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Portfolio</a>
+        <a href="#feedback">Feedback</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container" id="home">
+        <div class="photo">
+            <img src="https://raw.githubusercontent.com/Srishtimaurya0/CODSOFT/fef48c581d06380d04ea64d2f54152c272c5af71/portfolio/my%20photo.jpg" alt="Srishti Maurya">
+        </div>
+        <div class="intro">
+            <h1>Hello, I'm Srishti </h1>
+            <p>Creative and detail-oriented web developer with a knack for building functional and visually appealing websites.
+                 Let's build something amazing together!</p>
+            <div class="button-container">
+                <button>Know More</button>
+                
+            </div>
+        </div>
+    </div>
+
+   
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            Hi, I'm Srishti, a highly skilled developer specializing in creating modern, responsive, and user-friendly websites. I have worked on multiple projects and am committed to delivering high-quality work.
+        </p>
+    </section>
+
+    <section class="projects" id="projects">
+        <h2>My Projects</h2>
+        <ul>
+            <li>Landing Page for Octanet Services Pvt Ltd</li>
+            <li>Landing Page for the Music Division of Octanet</li>
+            <li>Landing Page for CodSoft</li>
+            <li>Website for Taste of India Restaurant</li>
+        </ul>
+    </section>
+
+    <section class="feedback" id="feedback">
+        <h2>Feedback</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="5" placeholder="Your Feedback"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email:srishti03maurya@gmail.com</p>
+        
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Srishti Maurya. All rights reserved.</p>
+    </footer>
+</body>
+</html>
