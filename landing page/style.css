@@ -1,0 +1,149 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fef6e4;
+    color: #4e342e;
+}
+
+header {
+    background-color:#A59D84;
+    color: white;
+    padding: 20px 10px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #C1BAA1;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.hero {
+    background-image: url('https://i.pinimg.com/736x/72/0a/b9/720ab9edefb433438f2281a51f96d77a.jpg'); 
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 10px;
+}
+
+.hero h1 {
+    font-size: 50px;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.hero button {
+    background-color: #060301;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hero button:hover {
+    background-color: #4B391E;
+}
+
+.dishes {
+    padding: 60px 20px;
+    background-color: #fff3e0;
+    text-align: center;
+}
+
+.dishes h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.dish-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.dish {
+    background-color: white;
+    border: 1px solid #ffe0b2;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    width: 300px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.dish img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.dish h3 {
+    background-color: #ffb74d;
+    margin: 0;
+    padding: 10px;
+    color: white;
+}
+
+.dish p {
+    padding: 10px;
+}
+
+.about {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+footer {
+    background-color: #4e342e;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: 40px;
+}
+
+footer a {
+    color: #ffcc80;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
