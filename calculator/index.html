@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+
+        .calculator {
+            width: 300px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+
+        .display {
+            width: 100%;
+            height: 50px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-align: right;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .button {
+            height: 50px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .button.operator {
+            background: #28a745;
+        }
+
+        .button.operator:hover {
+            background-color: #1e7e34;
+        }
+
+        .button.clear {
+            background: #5806cb;
+        }
+
+        .button.clear:hover {
+            background-color: #730cd3;
+        }
+
+        .button.equal {
+            background: #ec3c06;
+            grid-column: span 2;
+        }
+
+        .button.equal:hover {
+            background-color: #ed460a;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="display" class="display" disabled>
+        <div class="buttons">
+            <button class="button" onclick="appendNumber('7')">7</button>
+            <button class="button" onclick="appendNumber('8')">8</button>
+            <button class="button" onclick="appendNumber('9')">9</button>
+            <button class="button operator" onclick="chooseOperator('/')">/</button>
+
+            <button class="button" onclick="appendNumber('4')">4</button>
+            <button class="button" onclick="appendNumber('5')">5</button>
+            <button class="button" onclick="appendNumber('6')">6</button>
+            <button class="button operator" onclick="chooseOperator('*')">*</button>
+
+            <button class="button" onclick="appendNumber('1')">1</button>
+            <button class="button" onclick="appendNumber('2')">2</button>
+            <button class="button" onclick="appendNumber('3')">3</button>
+            <button class="button operator" onclick="chooseOperator('-')">-</button>
+
+            <button class="button" onclick="appendNumber('0')">0</button>
+            <button class="button clear" onclick="clearDisplay()">C</button>
+            <button class="button equal" onclick="calculateResult()">=</button>
+            <button class="button operator" onclick="chooseOperator('+')">+</button>
+        </div>
+    </div>
+
+    <script>
+        let currentInput = '';
+        let previousInput = '';
+        let operator = '';
+
+        function appendNumber(number) {
+            currentInput += number;
+            updateDisplay(currentInput);
+        }
+
+        function chooseOperator(op) {
+            if (currentInput === '') return;
+            if (previousInput !== '') {
+                calculateResult();
+            }
+            operator = op;
+            previousInput = currentInput;
+            currentInput = '';
+        }
+
+        function updateDisplay(value) {
+            document.getElementById('display').value = value;
+        }
+
+        function clearDisplay() {
+            currentInput = '';
+            previousInput = '';
+            operator = '';
+            updateDisplay('');
+        }
+
+        function calculateResult() {
+            let result = 0;
+            const prev = parseFloat(previousInput);
+            const current = parseFloat(currentInput);
+
+            if (isNaN(prev) || isNaN(current)) return;
+
+            if (operator === '+') {
+                result = prev + current;
+            } else if (operator === '-') {
+                result = prev - current;
+            } else if (operator === '*') {
+                result = prev * current;
+            } else if (operator === '/') {
+                result = current === 0 ? 'Error' : prev / current;
+            }
+
+            currentInput = result.toString();
+            operator = '';
+            previousInput = '';
+            updateDisplay(currentInput);
+        }
+    </script>
+</body>
+</html>
