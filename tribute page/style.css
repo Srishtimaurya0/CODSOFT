@@ -1,0 +1,90 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f4f0; 
+    color: #333;
+  }
+  
+  header {
+    background-color: #6c4f3d; 
+    color: #fff;
+    text-align: center;
+    padding: 30px 20px;
+  }
+  
+  header h1 {
+    font-size: 3em;
+  }
+  
+  header p {
+    font-size: 1.2em;
+  }
+  
+  .content {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f4f1ec; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-image {
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 20px;
+  }
+  
+  .bio {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    background-color: #f3e0d1; 
+    border-bottom: 3px solid #d3c2b1; 
+  }
+  
+  .qualities {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    background-color: #f0d7b4; 
+    border-bottom: 3px solid #d3c2b1; 
+  }
+  
+  .achievements {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    background-color: #d9d0b1; 
+    border-bottom: 3px solid #d3c2b1; 
+  }
+  
+  h2 {
+    color: #6c4f3d; 
+    margin-bottom: 10px;
+  }
+  
+  ul {
+    list-style-type: square;
+    padding-left: 20px;
+  }
+  
+  ul li {
+    margin-bottom: 10px;
+  }
+  
+  footer {
+    background-color: #6c4f3d; 
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+  
