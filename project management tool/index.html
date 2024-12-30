@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management Tool</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1d3557, #457b9d);
+            color: #f1faee;
+        }
+
+        header {
+            background: #e63946;
+            color: #f1faee;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: #f1faee;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #a8dadc;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+            background: #1d3557;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            border-bottom: 2px solid #a8dadc;
+            padding-bottom: 10px;
+            color: #f1faee;
+        }
+
+        form input, form textarea, form button, form select {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        form input, form textarea, form select {
+            background: #457b9d;
+            color: #f1faee;
+        }
+
+        form button {
+            background: #e63946;
+            color: #f1faee;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        form button:hover {
+            background: #d62839;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #1d3557;
+            color: #a8dadc;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            form input, form textarea, form button, form select {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Project Management Tool</h1>
+        <nav>
+            <ul>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#create-project">Create Project</a></li>
+                <li><a href="#tasks">Tasks</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Projects</h2>
+            <div id="project-list">
+                <p>No projects available. Start by creating a new project!</p>
+            </div>
+        </section>
+
+        <!-- Create Project Section -->
+        <section id="create-project">
+            <h2>Create a New Project</h2>
+            <form id="project-form">
+                <input type="text" id="project-name" placeholder="Project Name" required>
+                <textarea id="project-description" placeholder="Project Description" required></textarea>
+                <button type="submit">Create Project</button>
+            </form>
+        </section>
+
+        <!-- Tasks Section -->
+        <section id="tasks">
+            <h2>Tasks</h2>
+            <form id="task-form">
+                <select id="task-project" required>
+                    <option value="">Select Project</option>
+                </select>
+                <input type="text" id="task-name" placeholder="Task Name" required>
+                <input type="date" id="task-deadline" required>
+                <button type="submit">Add Task</button>
+            </form>
+            <div id="task-list">
+                <p>No tasks assigned yet.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Project Management Tool</p>
+    </footer>
+
+    <script>
+        document.getElementById('project-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const projectName = document.getElementById('project-name').value;
+            const projectDescription = document.getElementById('project-description').value;
+            const projectList = document.getElementById('project-list');
+            const taskProjectSelect = document.getElementById('task-project');
+
+            const project = document.createElement('div');
+            project.innerHTML = `<h3>${projectName}</h3><p>${projectDescription}</p>`;
+            project.style.marginBottom = '20px';
+            project.style.padding = '10px';
+            project.style.border = '1px solid #a8dadc';
+            project.style.borderRadius = '5px';
+            project.style.background = '#457b9d';
+            project.style.color = '#f1faee';
+
+            projectList.appendChild(project);
+
+            const option = document.createElement('option');
+            option.value = projectName;
+            option.textContent = projectName;
+            taskProjectSelect.appendChild(option);
+
+            document.getElementById('project-form').reset();
+        });
+
+        document.getElementById('task-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const taskProject = document.getElementById('task-project').value;
+            const taskName = document.getElementById('task-name').value;
+            const taskDeadline = document.getElementById('task-deadline').value;
+            const taskList = document.getElementById('task-list');
+
+            const task = document.createElement('div');
+            task.innerHTML = `<h4>${taskProject}: ${taskName}</h4><p>Deadline: ${taskDeadline}</p>`;
+            task.style.marginBottom = '20px';
+            task.style.padding = '10px';
+            task.style.border = '1px solid #a8dadc';
+            task.style.borderRadius = '5px';
+            task.style.background = '#1d3557';
+            task.style.color = '#f1faee';
+
+            taskList.appendChild(task);
+
+            document.getElementById('task-form').reset();
+        });
+    </script>
+</body>
+</html>
