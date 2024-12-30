@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogging Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 10px;
+        }
+
+        form input, form textarea, form button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #007BFF;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        @media (max-width: 600px) {
+            nav ul li {
+                display: block;
+                margin: 5px 0;
+            }
+
+            form input, form textarea, form button {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Blogging Platform</h1>
+        <nav>
+            <ul>
+                <li><a href="#posts">Home</a></li>
+                <li><a href="#create-post">Create Post</a></li>
+                <li><a href="#login">Login</a></li>
+                <li><a href="#register">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Blog Posts Section -->
+        <section id="posts">
+            <h2>Recent Blog Posts</h2>
+            <div id="post-list">
+                <p>No posts available. Be the first to create one!</p>
+            </div>
+        </section>
+
+        <!-- Create Blog Post Section -->
+        <section id="create-post">
+            <h2>Create a New Blog Post</h2>
+            <form id="post-form">
+                <input type="text" id="post-title" placeholder="Post Title" required>
+                <textarea id="post-content" placeholder="Write your blog post here..." required></textarea>
+                <button type="submit">Publish</button>
+            </form>
+        </section>
+
+        <!-- Login Section -->
+        <section id="login">
+            <h2>Login</h2>
+            <form id="login-form">
+                <input type="email" id="login-email" placeholder="Email" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </section>
+
+        <!-- Register Section -->
+        <section id="register">
+            <h2>Register</h2>
+            <form id="register-form">
+                <input type="text" id="register-username" placeholder="Username" required>
+                <input type="email" id="register-email" placeholder="Email" required>
+                <input type="password" id="register-password" placeholder="Password" required>
+                <button type="submit">Register</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Blogging Platform</p>
+    </footer>
+
+    <script>
+        document.getElementById('post-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const title = document.getElementById('post-title').value;
+            const content = document.getElementById('post-content').value;
+            const postList = document.getElementById('post-list');
+
+            const post = document.createElement('div');
+            post.innerHTML = `<h3>${title}</h3><p>${content}</p>`;
+            post.style.marginBottom = '20px';
+            post.style.padding = '10px';
+            post.style.border = '1px solid #ccc';
+            post.style.borderRadius = '5px';
+
+            postList.appendChild(post);
+
+            document.getElementById('post-form').reset();
+        });
+    </script>
+</body>
+</html>
